@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingLeanbackLauncher"> <!-- by Mehrab -->
+    <uses-sdk
+        android:minSdkVersion="21"
+        tools:overrideLibrary="com.blacksquircle.ui.editorkit" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" /> <!-- Global permissions -->
+
+    <!-- <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- Copy the <permission> block to your app when using the REMOTE API. Otherwise OpenConnect
+        needs to be installed first -->
+<!--    <permission-group android:name="android.permission-group.NETWORK"/>-->
+<!--    <permission-->
+<!--        android:name="app.openconnect.REMOTE_API"-->
+<!--        android:description="@string/permission_description"-->
+<!--        android:label="Control OpenConnect"-->
+<!--        android:permissionGroup="android.permission-group.NETWORK"-->
+<!--        android:protectionLevel="dangerous" />-->
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+    <uses-permission
+        android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission
+        android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"
+        android:minSdkVersion="34" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <application
+        android:name="sp.inetvpn.MainApplication"
+        android:allowBackup="true"
+        android:banner="@mipmap/ic_banner"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="false"
+        android:theme="@style/AppThemeDayNight"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+
+<!--        cisco-->
+        <activity
+            android:name="app.openconnect.ConnectionEditorActivity" />
+        <activity
+            android:name="app.openconnect.FragActivity" />
+        <activity
+            android:name="app.openconnect.TokenImportActivity"
+            android:exported="true" >
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:scheme="http"
+                    android:host="127.0.0.1"
+                    android:path="/securid/ctf" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:scheme="http"
+                    android:host="rsa.com"
+                    android:path="/android/token/ctf" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="com.rsa.securid" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="com.rsa.securid.iphone" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:scheme="file"
+                    android:host="*"
+                    android:mimeType="*/*"
+                    android:pathPattern=".*\\.sdtid" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name="app.openconnect.FileSelect" />
+        <activity
+            android:name="app.openconnect.MainActivity"
+            android:uiOptions="splitActionBarWhenNarrow"
+            android:exported="true">
+            <intent-filter>
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+                <category android:name="android.intent.category.BROWSABLE" />
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="org.acra.CrashReportDialog"
+            android:theme="@android:style/Theme.Dialog"
+            android:launchMode="singleInstance"
+            android:excludeFromRecents="true"
+            android:finishOnTaskLaunch="true" />
+
+        <service
+            android:name="app.openconnect.core.OpenVpnService"
+            android:permission="android.permission.BIND_VPN_SERVICE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+        </service>
+        <!--
+                <service
+                    android:name="app.openconnect.api.ExternalOpenVPNService"
+                    android:permission="app.openconnect.REMOTE_API" >
+                    <intent-filter>
+                        <action android:name="app.openconnect.api.IOpenVPNAPIService" />
+                    </intent-filter>
+                </service>
+        -->
+
+        <activity
+            android:permission="app.openconnect.REMOTE_API"
+            android:name="app.openconnect.api.GrantPermissionsActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:permission="app.openconnect.REMOTE_API"
+            android:name="app.openconnect.api.ConfirmDialog"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name="app.openconnect.OnBootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="app.openconnect.FileProvider"
+            android:authorities="app.openconnect.FileProvider"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            tools:ignore="ExportedContentProvider" />
+
+        <!--
+        <receiver android:name="core.GetRestrictionReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.GET_RESTRICTION_ENTRIES" />
+            </intent-filter>
+        </receiver>
+        -->
+
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+        <meta-data
+            android:name="xposeddescription"
+            android:value="Bypass Android VPN confirmation dialog" />
+        <meta-data
+            android:name="xposedminversion"
+            android:value="30" />
+
+        <activity
+            android:name="sp.inetvpn.ui.SplitActivity"
+            android:exported="false"
+            android:theme="@style/AppThemeDayNight.NoActionBar" />
+        <activity
+            android:name="sp.inetvpn.ui.LogActivity"
+            android:exported="false"
+            android:theme="@style/AppThemeDayNight.NoActionBar" />
+        <activity
+            android:name="sp.inetvpn.ui.InfoActivity"
+            android:exported="false"
+            android:theme="@style/AppThemeDayNight.NoActionBar" />
+
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1" /> <!-- App -->
+
+        <activity
+            android:name="sp.inetvpn.ui.LauncherActivity"
+            android:exported="true"
+            android:theme="@style/AppThemeDayNight.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="sp.inetvpn.ui.MainActivity"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:theme="@style/AppThemeDayNight.NoActionBar">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+        <activity
+            android:name="sp.inetvpn.ui.LoginActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="sp.inetvpn.ui.ServersActivity"
+            android:theme="@style/AppThemeDayNight.NoActionBar" />
+        <activity
+            android:name="sp.inetvpn.ui.UsageActivity"
+            android:theme="@style/AppThemeDayNight.NoActionBar" />
+        <activity android:name="sp.inetvpn.ui.FeedbackActivity" />
+        <activity android:name="sp.inetvpn.ui.AboutMeActivity" />
+        <!-- OpenVpn -->
+        <service
+            android:name="de.blinkt.openvpn.core.OpenVPNService"
+            android:enabled="true"
+            android:exported="true"
+            android:foregroundServiceType="specialUse"
+            android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON"
+                android:value="true" />
+
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="vpn" />
+        </service>
+        <service
+            android:name="de.blinkt.openvpn.api.ExternalOpenVPNService"
+            android:enabled="true"
+            android:exported="true"
+            android:process=":openvpn">
+            <intent-filter>
+                <action android:name="de.blinkt.openvpn.api.IOpenVPNAPIService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON"
+                android:value="true" />
+
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="vpn" />
+        </service>
+        <service
+            android:name="de.blinkt.openvpn.core.OpenVPNStatusService"
+            android:exported="false"
+            android:process=":openvpn" />
+
+        <receiver
+            android:name="de.blinkt.openvpn.OnBootReceiver"
+            android:exported="true">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver> <!-- <service android:exported="true" android:name="de.blinkt.openvpn.core.keepVPNAlive" android:permission="android.permission.BIND_JOB_SERVICE" android:process=":openvpn"/> -->
+        <!-- <activity android:autoRemoveFromRecents="true" android:excludeFromRecents="true" android:exported="true" android:label="@string/vpn_launch_title" android:name="de.blinkt.openvpn.LaunchVPN" android:taskAffinity=".LaunchVPN" android:theme="@style/blinkt.dialog"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.MAIN"/> -->
+        <!-- <category android:name="android.intent.category.DEFAULT"/> -->
+        <!-- </intent-filter> -->
+        <!-- </activity> -->
+        <activity
+            android:name="de.blinkt.openvpn.LaunchVPN"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:label="@string/vpn_launch_title"
+            tools:ignore="ExportedActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="de.blinkt.openvpn.DisconnectVPNActivity"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:taskAffinity=".DisconnectVPN"
+            android:theme="@style/blinkt.dialog" /> <!-- V2ray -->
+        <activity
+            android:name="com.xray.lite.ui.MainSettingsV2ray"
+            android:exported="false"
+            android:theme="@style/AppThemeDayNight.NoActionBar" />
+        <activity
+            android:name="com.xray.lite.ui.ServerAngActivity"
+            android:exported="false"
+            android:theme="@style/AppThemeDayNight.NoActionBar"
+            android:windowSoftInputMode="stateUnchanged" />
+        <activity
+            android:name="com.xray.lite.ui.MainAngActivity"
+            android:exported="false"
+            android:theme="@style/AppThemeDayNight.NoActionBar"
+            android:windowSoftInputMode="stateUnchanged" />
+        <activity
+            android:name="com.xray.lite.ui.ServerCustomConfigActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateUnchanged" />
+        <activity
+            android:name="com.xray.lite.ui.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.xray.lite.ui.PerAppProxyActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.xray.lite.ui.ScannerActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.xray.lite.ui.LogcatActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.xray.lite.ui.RoutingSettingsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="stateUnchanged" />
+        <activity
+            android:name="com.xray.lite.ui.SubSettingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.xray.lite.ui.UserAssetActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.xray.lite.ui.SubEditActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.xray.lite.ui.ScScannerActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.xray.lite.ui.ScSwitchActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:process=":RunSoLibV2RayDaemon"
+            android:theme="@style/AppThemeDayNight.NoActionBar.Translucent" />
+        <activity
+            android:name="com.xray.lite.ui.UrlSchemeActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="xraylite" />
+                <data android:host="install-config" />
+                <data android:host="install-sub" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.xray.lite.service.V2RayVpnService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_VPN_SERVICE"
+            android:process=":RunSoLibV2RayDaemon">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON"
+                android:value="true" />
+
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="vpn" />
+        </service>
+        <service
+            android:name="com.xray.lite.service.V2RayProxyOnlyService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"
+            android:label="@string/app_name"
+            android:process=":RunSoLibV2RayDaemon">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="proxy" />
+        </service>
+        <service
+            android:name="com.xray.lite.service.V2RayTestService"
+            android:exported="false"
+            android:process=":RunSoLibV2RayDaemon" />
+
+        <receiver
+            android:name="com.xray.lite.receiver.WidgetProvider"
+            android:exported="true"
+            android:process=":RunSoLibV2RayDaemon">
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/app_widget_provider" />
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.xray.lite.action.widget.click" />
+                <action android:name="com.xray.lite.action.activity" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="com.xray.lite.service.QSTileService"
+            android:exported="true"
+            android:foregroundServiceType="specialUse"
+            android:icon="@drawable/ic_stat_name"
+            android:label="@string/app_tile_name"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:process=":RunSoLibV2RayDaemon">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="tile" />
+        </service> <!-- =====================Tasker===================== -->
+        <activity
+            android:name="com.xray.lite.ui.TaskerActivity"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name="com.xray.lite.receiver.TaskerReceiver"
+            android:exported="true"
+            android:process=":RunSoLibV2RayDaemon">
+            <intent-filter>
+                <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
+            </intent-filter>
+        </receiver> <!-- =====================Tasker===================== -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+        </provider>
+    </application>
+
+</manifest>

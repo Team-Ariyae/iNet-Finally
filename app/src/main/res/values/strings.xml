@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">iNet Vpn</string>
+
+
+
+    <string name="permission_description">Allows another app to control OpenConnect</string>
+    <string name="location">Location</string>
+    <string name="cant_read_folder">Unable to read directory</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="next">Next</string>
+    <string name="finish">Finish</string>
+    <string name="no_data">No Data</string>
+    <string name="client_certificate_title">Client Certificate</string>
+    <string name="securid_info">SecurID info</string>
+    <string name="report_problem">Report a problem</string>
+    <string name="feedback_plea">Taking a few seconds to rate an app is very important for the developer.  It allows us to continually improve the experience, and helps other users decide whether an app is right for them. How about telling us what you think?</string>
+    <string name="i_love_it">I love it</string>
+    <string name="needs_work">Needs work</string>
+    <string name="maybe_later">Maybe later</string>
+    <string name="help_with_translations">Help with translations</string>
+    <string name="about_openconnect">About OpenConnect</string>
+    <string name="securid_none_defined">None of your VPN profiles have a SecurID token string set.\n\nTo add one, import an \"sdtid\" file or click on a \"http://127.0.0.1/securid\" URL from your email.  See the FAQ for more information.</string>
+    <string name="securid_parse_error">Unable to parse the SecurID token string in this profile.</string>
+    <string name="securid_internal_error">Unable to access the VPN profile.  Please file a bug report with the author.</string>
+    <string name="securid_encrypted">This profile\'s SecurID token string is encrypted. Try re-importing it.</string>
+    <string name="copy">Copy</string>
+    <string name="next_tokencode">Next tokencode:</string>
+    <string name="using_pin">Using PIN:</string>
+    <string name="token_sn">Token S/N:</string>
+    <string name="exp_date">Expiration date:</string>
+    <string name="gmt">Current time (GMT):</string>
+    <string name="dev_id">SecurID device ID:</string>
+    <string name="enter_pin">Enter PIN:</string>
+    <string name="new_pin">New PIN</string>
+    <string name="skip">Skip</string>
+    <string name="vpn_list_title">Profiles</string>
+    <string name="status">Status</string>
+    <string name="log">Log</string>
+    <string name="file_select">Select…</string>
+    <string name="file_nothing_selected">You must select a file</string>
+    <string name="configure_the_vpn">Configure the VPN</string>
+    <string name="menu_add_profile">Add Profile</string>
+    <string name="add_profile_hostname_prompt">Enter the hostname, IP address, or URL:</string>
+    <string name="hostname_examples">Valid formats include:\nvpn.example.com (typical usage)\nvpn.example.com:443 (host:port)\nhttps://vpn.example.com/my-group-url</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="reconnect">Reconnect</string>
+    <string name="reconnect_to">Reconnect to %1$s</string>
+    <string name="clear_log">Clear log</string>
+    <string name="remove_vpn">Remove VPN</string>
+    <string name="clear">Clear</string>
+
+    <string name="send">Send</string>
+    <string name="enter_problem">ENTER PROBLEM DESCRIPTION HERE:</string>
+
+    <!-- ACRA crash reporting -->
+    <string name="crash_dialog_text">An unexpected error occurred forcing the application to stop. You can help us fix this by sending us error data.</string>
+    <string name="crash_dialog_comment_prompt">Please describe what was happening when the problem occurred:</string>
+
+    <string name="problem_dialog_text">Thanks for offering your feedback for improving OpenConnect. We\'re sorry you encountered an issue but we\'ll review your report and track down the bug.</string>
+    <string name="problem_dialog_comment_prompt">Please describe the nature of the problem. If you\'re willing to help the author troubleshoot it, make sure you include your email address:</string>
+
+    <string name="bad_rom_text">Unfortunately your Android device does not have proper VpnService support.  If you click OK we will report this to the vendor, but they may or may not fix the bug.</string>
+    <string name="bad_rom_comment_prompt">If you have customized your device in any way (rooting, ROM, Xposed) please note the changes below:</string>
+
+    <string name="copied_entry">Copied to clipboard.</string>
+    <string name="faq">FAQ</string>
+    <string name="question_abbrev">Q:</string>
+    <string name="answer_abbrev">A:</string>
+    <string name="file_explorer_tab">File Explorer</string>
+    <string name="inline_file_tab">Inline File</string>
+    <string name="file_too_large">File is too large</string>
+    <string name="error_importing_file">Error importing File</string>
+    <string name="import_error_message">Could not import File from filesystem</string>
+    <string name="inline_file_data">[[Inline file data]]</string>
+    <string name="speed_waiting">Waiting for state message…</string>
+    <string name="file_icon">file icon</string>
+    <string name="generalsettings">Settings</string>
+    <string name="owner_fix_summary">Tries to set the owner of /dev/tun to the \'system\' UID (1000). Some CM9 images need this to make the VPNService API work. Requires root.</string>
+    <string name="owner_fix">Fix ownership of /dev/tun</string>
+    <string name="edit_profile_title">Editing \"%s\"</string>
+    <string name="netchange_summary">Turning this option on will force a reconnect if the network state is changed (e.g. WiFi to/from mobile)</string>
+    <string name="netchange">Reconnect on network change</string>
+    <string name="uptime">Uptime:</string>
+    <string name="tx">TX:</string>
+    <string name="rx">RX:</string>
+    <string name="local_ip4">Local IPv4:</string>
+    <string name="local_ip6">Local IPv6:</string>
+    <string name="disabled">disabled</string>
+    <string name="subnet_mask">Subnet mask:</string>
+    <string name="server_name">Server name:</string>
+    <string name="select_file">Select</string>
+    <string name="advanced">Advanced</string>
+    <string name="setting_loadtun_summary">Try to load the tun.ko kernel module before trying to connect. Needs rooted devices.</string>
+    <string name="setting_loadtun">Load tun module</string>
+    <string name="trace_log_summary">Increase logging verbosity for debugging purposes. This will affect performance.</string>
+    <string name="trace_log">Enable TRACE logging</string>
+    <string name="getproxy_error">Error getting proxy settings: %s</string>
+    <string name="no_vpn_profiles_defined">No VPN profiles defined.</string>
+    <string name="add_new_vpn_hint">Use the &lt;img src=\"ic_menu_add\"/&gt; icon to add a new VPN</string>
+    <string name="faq_hint">Be sure to also check out the FAQ if you have not used OpenConnect before.</string>
+    <string name="send_minidump">Send Minidump to developer</string>
+    <string name="send_minidump_summary">Sends debugging information about last crash to developer</string>
+    <string name="notification_input_needed">User input needed</string>
+    <string name="notification_touch_here">Touch here to jump to OpenConnect</string>
+    <string name="state_connected_to">Connected to %1$s</string>
+    <string name="error_connection_failed">Connection failed</string>
+    <string name="error_invalid_hostname">Invalid hostname \'%1$s\'</string>
+    <string name="error_cant_connect">Error connecting to host \'%1$s\'. See log for details.</string>
+    <string name="oneway_bytecount">%1$s/s %2$s</string>
+    <string name="login_title">%s login</string>
+    <string name="make_selection_inline">Copy into profile</string>
+    <string name="add">Add</string>
+    <string name="no_external_app_allowed">No app allowed to use external API</string>
+    <string name="allowed_apps">Allowed apps: %s</string>
+    <string name="clearappsdialog">Clear list of allowed external apps?\nCurrent list of allowed apps:\n\n%s</string>
+    <string name="screenoff_summary">Pause the connection when the screen is off, to save battery life.</string>
+    <string name="screenoff_title">Pause when asleep</string>
+    <string name="device_specific">Device-specific Hacks</string>
+    <string name="vpnbehaviour">VPN behavior</string>
+    <string name="allow_vpn_changes">Allow changes to VPN Profiles</string>
+    <!-- OpenConnect preference strings -->
+    <string name="server">Server</string>
+    <string name="profile_name">Profile name</string>
+    <string name="profile_label">Profile:</string>
+    <string name="server_address">Server address</string>
+    <string name="ca_certificate">CA certificate</string>
+    <string name="authentication">Authentication</string>
+    <string name="user_certificate">User certificate</string>
+    <string name="private_key">Private key</string>
+    <string name="stored">[STORED]</string>
+    <string name="software_token">Software token</string>
+    <string name="token_string">Token string</string>
+    <string name="enter_token_string">Enter token string:</string>
+    <string name="token_string_examples_0">Valid formats include:</string>
+    <string name="token_string_examples_1" translatable="false">29624-04141-91521-01027-05321-47115-52307-30331-00256-47622-00007-44173-12504-44077-52716-73535-5</string>
+    <string name="token_string_examples_2" translatable="false">http://127.0.0.1/securid/ctf?ctfData=213797568467227240150540165305516771132574111177500436764173125710437026671675121</string>
+    <string name="token_string_examples_3" translatable="false">com.rsa.securid.iphone://ctf?ctfData=280670666747751343027701722017126407551472632305635574224173125614664606671656613</string>
+    <string name="token_bad_string_title">Token string is not valid</string>
+    <string name="token_bad_string_summary">The supplied string cannot be parsed.  Please check for errors and resubmit.</string>
+    <string name="token_need_devid">This token is tied to a specific Device ID, usually found on the "About" screen in the RSA SecurID Software Token app.  Enter the Device ID here:</string>
+    <string name="token_need_password">Enter password to unlock token:</string>
+    <string name="token_bad_devid_title">Device ID is not valid</string>
+    <string name="token_bad_devid_summary">The supplied device ID is not suitable for this token.  Please check for errors and resubmit.</string>
+    <string name="token_bad_password_title">Password is not valid</string>
+    <string name="token_bad_password_summary">The supplied password is not suitable for this token.  Please check for errors and resubmit.</string>
+    <string name="import_from_file">Import from file&#8230;</string>
+    <string name="clear_token">Clear token</string>
+    <string name="choose_existing_vpn">Select the VPN profile that will be used with this token, or add a new one:</string>
+    <string name="new_vpn_option">Add new VPN profile&#8230;</string>
+    <string name="clear_saved_passwords">Clear saved passwords</string>
+    <string name="clear_saved_passwords_confirm">Are you sure you want to erase all stored credentials?</string>
+    <string name="not_required">Not required</string>
+    <string name="unknown">Unknown</string>
+    <string name="batch_mode">Batch mode</string>
+    <string name="reported_os">Reported OS</string>
+    <string name="custom_csd_wrapper">Custom CSD wrapper</string>
+    <string name="split_tunnel_mode">Split tunnel mode</string>
+    <string name="split_tunnel_networks">Split tunnel networks</string>
+    <string name="split_tunnel_networks_message">Enter a comma-separated list of subnets to route over the VPN link.  Example:\n\n192.168.22.0/24, 10.15.0.0/16</string>
+    <string name="timestamp_format">Log timestamp format</string>
+    <string name="timestamp_short">Time only</string>
+    <string name="timestamp_long">Date + time</string>
+    <string name="timestamp_none">No timestamp</string>
+    <string name="disable_username_caching">Disable credential caching</string>
+    <string name="disable_username_caching_summary">Never cache login names, user groups, or passwords</string>
+    <string name="disable_xml_post">Disable XML POST</string>
+    <string name="disable_xml_post_summary">Use the old authentication handshake; may fail on newer servers</string>
+    <string name="require_pfs">Require PFS</string>
+    <string name="require_pfs_summary">Only negotiate cipher suites with Perfect Forward Secrecy.  If the server doesn\'t support PFS, the connection will fail.</string>
+    <string name="dpd_override">Override DPD timeout</string>
+    <string name="dpd_override_summary">Use a custom Dead Peer Detection timeout instead of the server default</string>
+    <string name="dpd_value">DPD timeout</string>
+    <string name="dpd_value_message">Enter the new timeout value, in seconds. Typical values range from 30 to 600.</string>
+    <string name="cert_warning_title">Certificate warning</string>
+    <string name="cert_warning_message">The certificate from VPN server \"%1$s\" failed verification.\n\nReason: \"%2$s\"\nSHA1: %3$s\n\nConnect anyway?</string>
+    <string name="cert_warning_just_once">Just once</string>
+    <string name="cert_warning_always_connect">Always connect</string>
+
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <!--    openvpn-->
+    <!--<string name="title_activity_server_list">OpenVpnServerList Lists</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_vpnsettings">Settings</string>-->
+    <string name="get_time">%d%02d%02d%02d%02d%02d%03d</string>
+    <string name="iNet">iNet</string>
+    <string name="VPN">VPN</string>
+    <string name="ChicagoIL">Chicago IL</string>
+    <string name="Title">Update Your VPN App</string>
+    <string name="Description">A newer version 1.0.4 is available for download with enhanced features, and fewer bugs</string>
+    <string name="Cancel">Got it</string>
+    <string name="Update">Update</string>
+    <string name="connect">روشن شدن</string>
+    <string name="connected">Disconnect</string>
+    <string name="error1">Error</string>
+    <string name="connecting">Connecting</string>
+    <string name="initing">Initing&#8230;</string>
+    <string name="help">About</string>
+    <string name="init_fail">init failed: </string>
+    <string name="down_fail">load data failed: </string>
+    <string name="not_show_more">Not show more</string>
+    <string name="remove_vpn_query">Remove the VPN Profile \'%s\'?</string>
+
+    // ui elements
+    <string name="app_is_starting">app is starting</string>
+    <string name="creating_notification_channel">creating notification</string>
+    <string name="check_internet_connection">checking internet connection</string>
+    <string name="internet_is_available">internet_is_available</string>
+    <string name="internet_is_not_available">internet is not available</string>
+    <string name="getting_app_details">getting details</string>
+    <string name="getting_app_details_completed">getting details completed</string>
+    <string name="getting_connection_details">establishing connection</string>
+    <string name="getting_connection_details_completed">establishing connection completed</string>
+    <string name="establishing_vpn_connection">establishing vpn</string>
+    <string name="establishing_vpn_connection_completed">establishing vpn completed</string>
+
+    <string name="please_wait">wait</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+
+
+    <!-- Example settings for Data & Sync -->
+
+    <!-- Example settings for Notifications -->
+
+    <string name="auth_username">Username</string>
+    <string name="no_keystore_cert_selected">You must select a User certificate</string>
+    <string name="no_ca_cert_selected">You must select a CA certificate</string>
+    <string name="no_error_found">No error found</string>
+    <string name="config_error_found">Error in Configuration</string>
+    <string name="ipv4_format_error">Error parsing the IPv4 address</string>
+    <string name="custom_route_format_error">Error parsing the custom routes</string>
+    <string name="vpn_launch_title">Connecting to VPN…</string>
+    <string name="shortcut_profile_notfound">Profile specified in shortcut not found</string>
+    <string name="route_rejected">Route rejected by Android</string>
+    <string name="tun_error_helpful">On some custom ICS images the permission on /dev/tun might be wrong, or the tun module might be missing completely. For CM9 images try the fix ownership option under general settings</string>
+    <string name="tun_open_error">Failed to open the tun interface</string>
+    <string name="error">"Error: "</string>
+    <string name="last_openvpn_tun_config">Opening tun interface:</string>
+    <string name="local_ip_info">Local IPv4: %1$s/%2$d IPv6: %3$s MTU: %4$d</string>
+    <string name="dns_server_info">DNS OpenVpnServerList: %1$s, Domain: %2$s</string>
+    <string name="routes_info_incl">Routes: %1$s %2$s</string>
+    <string name="routes_info_excl">Routes excluded: %1$s %2$s</string>
+    <string name="routes_debug">VpnService routes installed: %1$s %2$s</string>
+    <string name="ip_not_cidr">Got interface information %1$s and %2$s, assuming second address is peer address of remote. Using /32 netmask for local IP. Mode given by OpenVPN is \"%3$s\".</string>
+    <string name="route_not_cidr">Cannot make sense of %1$s and %2$s as IP route with CIDR netmask, using /32 as netmask.</string>
+    <string name="route_not_netip">Corrected route %1$s/%2$s to %3$s/%2$s</string>
+    <string name="keychain_access">Cannot access the Android Keychain Certificates. This can be caused by a firmware upgrade or by restoring a backup of the app/app settings. Please edit the VPN and reselect the certificate under basic settings to recreate the permission to access the certificate.</string>
+    <string name="no_vpn_support_image">Your image does not support the VPNService API, sorry :(</string>
+    <string name="opentun_no_ipaddr">Refusing to open tun device without IP information</string>
+    <string name="pkcs12_file_encryption_key">PKCS12 File Encryption Key</string>
+    <string name="private_key_password">Private Key Password</string>
+    <string name="password">Password</string>
+    <string name="building_configration">configuring settings</string>
+    <string name="netstatus">Network Status: %s</string>
+    <string name="keychain_nocacert">No CA Certificate returned while reading from Android keystore. Authentication will probably fail.</string>
+    <string name="mobile_info">%10$s %9$s running on %3$s %1$s (%2$s), Android %6$s (%7$s) API %4$d, ABI %5$s, (%8$s)</string>
+    <string name="error_rsa_sign">Error signing with Android keystore key %1$s: %2$s</string>
+    <string name="warn_no_dns">No DNS servers being used. Name resolution may not work. Consider setting custom DNS Servers. Please also note that Android will keep using your proxy settings specified for your mobile/Wi-Fi connection when no DNS servers are set.</string>
+    <string name="dns_add_error">Could not add DNS OpenVpnServerList \"%1$s\", rejected by the system: %2$s</string>
+    <string formatted="true" name="ip_add_error">Could not configure IP Address \"%1$s\", rejected by the system: %2$s</string>
+    <string name="using_proxy">Using proxy %1$s %2$d</string>
+    <string name="minidump_generated">OpenVPN crashed unexpectedly. Please consider using the send Minidump option in the main menu</string>
+    <string name="notifcation_title">%1$s - %2$s</string>
+    <string name="session_ipv4string">%1$s - %2$s</string>
+    <string name="session_ipv6string">%1$s - %3$s, %2$s</string>
+    <string name="state_connecting">Connecting</string>
+    <string name="state_wait">server is waiting</string>
+    <string name="state_auth">getting the server</string>
+
+    <string name="state_get_config">setting up configuration</string>
+
+    <string name="your_app_version">App Version </string>
+    <string name="latest_update">Latest update </string>
+
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+    <string name="state_assign_ip">Assigning IP addresses</string>
+    <string name="state_add_routes">Adding routes</string>
+    <string name="state_connected">Connected</string>
+    <string name="state_disconnected">Disconnect</string>
+    <string name="state_reconnecting">Reconnecting</string>
+    <string name="state_exiting">Exiting</string>
+    <string name="state_noprocess">Not running</string>
+    <string name="state_resolve">Resolving host names</string>
+    <string name="state_tcp_connect">Connecting (TCP)</string>
+    <string name="state_auth_failed">Authentication failed</string>
+    <string name="state_nonetwork">slow internet connection</string>
+    <string name="statusline_bytecount">↓:%2$s(%1$s)-↑:%4$s(%3$s)</string>
+    <string name="notifcation_title_notconnect">Not connected</string>
+    <string name="jelly_keystore_alphanumeric_bug">Some versions of Android 4.1 have problems if the name of the keystore certificate contains non alphanumeric characters (like spaces, underscores or dashes). Try to reimport the certificate without special characters</string>
+    <string name="built_by">built by %s</string>
+    <string name="debug_build">debug build</string>
+    <string name="official_build">official build</string>
+    <string name="prompt">%1$s attempts to control %2$s</string>
+    <string name="remote_warning">By proceeding, you are giving the application permission to completely control OpenVPN for Android and to intercept all network traffic.<b>Do NOT accept unless you trust the application.</b> Otherwise, you run the risk of having your data compromised by malicious software."</string>
+    <string name="remote_trust">I trust this application.</string>
+    <string name="screenoff_pause">Pausing connection in screen off state: less than %1$s in %2$ss</string>
+    <string name="screen_nopersistenttun">Warning: Persistent tun not enabled for this VPN. Traffic will use the normal Internet connection when the screen is off.</string>
+    <string name="save_password">Save Password</string>
+    <string name="state_userpause">VPN pause requested by user</string>
+    <string name="state_screenoff">VPN paused - screen off</string>
+    <string name="cannotparsecert">Cannot display certificate information</string>
+    <string name="permission_icon_app">Icon of app trying to use OpenVPN for Android</string>
+    <string name="show_password">Show password</string>
+    <string name="keyChainAccessError">KeyChain Access error: %s</string>
+    <string name="unhandled_exception">Unhandled exception: %1$s\n\n%2$s</string>
+    <string name="unhandled_exception_context">%3$s: %1$s\n\n%2$s</string>
+    <string name="ip_looks_like_subnet">Vpn topology \"%3$s\" specified but ifconfig %1$s %2$s looks more like an IP address with a network mask. Assuming \"subnet\" topology.</string>
+    <string name="allowed_vpn_apps_info">Allowed VPN apps: %1$s</string>
+    <string name="disallowed_vpn_apps_info">Disallowed VPN apps: %1$s</string>
+    <string name="app_no_longer_exists">Package %s is no longer installed, removing it from app allow/disallow list</string>
+    <string name="remote_no_server_selected">You need to define and enable at least one remote server.</string>
+    <string name="ignore_multicast_route">Ignoring multicast route: %s</string>
+    <string name="service_restarted">Restarting OpenVPN Service (App crashed probably crashed or killed for memory pressure)</string>
+    <string name="no_allowed_app">No allowed app added. Adding ourselves (%s) to have at least one app in the allowed app list to not allow all apps</string>
+    <string name="abi_mismatch">Preferred native ABI precedence of this device (%1$s) and ABI reported by native libraries (%2$s) mismatch</string>
+    <string name="permission_revoked">VPN permission revoked by OS (e.g. other VPN program started), stopping VPN</string>
+    <string name="pw_request_dialog_title">Need %1$s</string>
+    <string name="pw_request_dialog_prompt">Please enter the password for profile %1$s</string>
+    <string name="missing_tlsauth">tls-auth file is missing</string>
+    <string name="missing_certificates">Missing user certificate or user certifcate key file</string>
+    <string name="missing_ca_certificate">Missing CA certificate</string>
+    <string name="reread_log">Reread (%d) log items from log cache file</string>
+    <string name="state_waitconnectretry">Waiting %ss seconds between connection attempt</string>
+    <string name="nought_alwayson_warning"><![CDATA[If you did not get a VPN confirmation dialog, you have \"Always on VPN\" enabled for another app. In that case only that app is allowed to connect to a VPN. Check under Settings-> Networks more .. -> VPNS]]></string>
+    <string name="deprecated_tls_remote">Config uses option tls-remote that was deprecated in 2.3 and finally removed in 2.4</string>
+    <string name="bits_per_second">%.0f bit/s</string>
+    <string name="kbits_per_second">%.1f kbit/s</string>
+    <string name="mbits_per_second">%.1f Mbit/s</string>
+    <string name="gbits_per_second">%.1f Gbit/s</string>
+
+    <string name="volume_byte">%.0f B</string>
+    <string name="volume_kbyte">%.1f kB</string>
+    <string name="volume_mbyte">%.1f MB</string>
+    <string name="volume_gbyte">%.1f GB</string>
+    <string name="channel_name_background">Connection statistics</string>
+    <string name="channel_description_background">Ongoing statistics of the established OpenVPN connection</string>
+    <string name="channel_name_status">Connection status change</string>
+    <string name="channel_description_status">Status changes of the  OpenVPN connection (Connecting, authenticating,…)</string>
+
+    <string name="connect_restart">Restart</string>
+    <string name="connect_retry">Retry</string>
+    <string name="connect_connecting">CONNECTING</string>
+
+
+    <string name="string_of_two_number">%02d</string>
+    <string name="title_activity_test_drawer">TestDrawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="loading_default">درحال اجرا</string>
+    <string name="button_login">وارد شوید</string>
+    <string name="password_hint">پسورد</string>
+    <string name="username_hint">یوزرنیم</string>
+    <string name="split_tun_drawer">اسپلیت تونل</string>
+    <string name="setting_drawer">تنظیمات</string>
+    <string name="about_me_drawer">درباره ی ما</string>
+    <string name="log_manage_drawer">گزارشات</string>
+    <string name="feedback_drawer">بازخورد</string>
+    <string name="logout_drawer">خروج از حساب</string>
+    <string name="none">None</string>
+    <string name="todo">TODO</string>
+    <string name="no_itemlist_found">لیستی برای نمایش وجود ندارد</string>
+    <string name="title_server_activity">Servers</string>
+    <string name="default_text_today">امروز</string>
+    <string name="default_text_footer_end">استفاده شده</string>
+    <string name="config_type_button_text">نوع اتصال</string>
+    <string name="default_connect_button_text">وصل شدن</string>
+    <string name="default_time_popup">00:00:00</string>
+    <string name="islogin_text">ورود دوباره</string>
+    <string name="left_islogin_test">کلیک کنید</string>
+    <string name="right_islogin_text">اول روی</string>
+    <!--    -->
+    <string name="app_widget_name">تعویض</string>
+    <string name="app_tile_name">تعویض</string>
+    <string name="app_tile_first_use">برای اولین بار از این ویژگی استفاده می‌کنید، لطفا از برنامه برای افزودن سرور استفاده کنید</string>
+    <string name="navigation_drawer_open">باز کردن منو کشویی</string>
+    <string name="navigation_drawer_close">بستن منو کشویی</string>
+    <string name="migration_success">موفقیت در انتقال داده!</string>
+    <string name="migration_fail">انتقال داده انجام نشد!</string>
+
+    <!-- Notifications -->
+    <string name="notification_action_stop_v2ray">توقف</string>
+    <string name="toast_permission_denied">قادر به دریافت مجوز نیست</string>
+    <string name="notification_action_more">برای اطلاعات بیشتر کلیک کنید</string>
+    <string name="toast_services_start">شروع خدمات</string>
+    <string name="toast_services_stop">توقف خدمات</string>
+    <string name="toast_services_success">خدمات با موفقیت شروع شد</string>
+    <string name="toast_services_failure">شروع خدمات انجام نشد</string>
+
+    <string name="server_lab_public_key" translatable="false">PublicKey</string>
+    <string name="server_lab_short_id" translatable="false">ShortId</string>
+    <string name="server_lab_spider_x" translatable="false">SpiderX</string>
+    <string name="server_lab_secret_key" translatable="false">SecretKey</string>
+
+    <string name="sub_auto_update">Enable automatic update</string>
+
+    <string name="title_pref_auto_update_subscription">Automatic update subscriptions</string>
+    <string name="summary_pref_auto_update_subscription">Update your subscriptions automatically with an interval in background. Depending on the device, this feature may not always work</string>
+    <string name="title_pref_auto_update_interval">Auto Update Interval (Minutes, Min value 15)</string>
+
+    <string name="title_pref_mux_concurency">TCP connections（range -1 to 1024）</string>
+
+    <string name="title_privacy_policy">Privacy policy</string>
+
+    <string name="server_lab_stream_fingerprint" translatable="false">Fingerprint</string>
+    <string name="server_lab_stream_alpn" translatable="false">Alpn</string>
+
+    <!--ServerActivity-->
+    <string name="title_server">پرونده پیکربندی</string>
+    <string name="menu_item_add_config">افزودن پیکربندی</string>
+    <string name="menu_item_save_config">ذخیره پیکربندی</string>
+    <string name="menu_item_del_config">حذف پیکربندی</string>
+    <string name="menu_item_import_config_qrcode">پیکربندی را از QRcode وارد کنید</string>
+    <string name="menu_item_import_config_clipboard">پیکربندی را از کلیپ‌بورد وارد کنید</string>
+    <string name="menu_item_import_config_manually_vmess">تایپ دستی[Vmess]</string>
+    <string name="menu_item_import_config_manually_vless">تایپ دستی[VLESS]</string>
+    <string name="menu_item_import_config_manually_ss">تایپ دستی[Shadowsocks]</string>
+    <string name="menu_item_import_config_manually_socks">تایپ دستی[Socks]</string>
+    <string name="menu_item_import_config_manually_trojan">تایپ دستی[Trojan]</string>
+    <string name="menu_item_import_config_manually_wireguard">[Wireguard]تایپ دستی</string>
+    <string name="menu_item_import_config_custom">پیکربندی سفارشی</string>
+    <string name="menu_item_import_config_custom_clipboard">پیکربندی سفارشی را از کلیپ‌بورد وارد کنید</string>
+    <string name="menu_item_import_config_custom_local">پیکربندی سفارشی را به صورت محلی وارد کنید</string>
+    <string name="menu_item_import_config_custom_url">پیکربندی سفارشی را از طریق نشانی اینترنتی وارد کنید</string>
+    <string name="menu_item_import_config_custom_url_scan">نشانی اینترنتی اسکن پیکربندی سفارشی را وارد کنید</string>
+    <string name="del_config_comfirm">حذف شود؟</string>
+    <string name="server_lab_remarks">ملاحظات</string>
+    <string name="server_lab_address">نشانی</string>
+    <string name="server_lab_port">پورت</string>
+    <string name="server_lab_id">شناسه</string>
+    <string name="server_lab_alterid">alterId</string>
+    <string name="server_lab_security">امنیت</string>
+    <string name="server_lab_network">شبکه</string>
+    <string name="server_lab_more_function">انتقال</string>
+    <string name="server_lab_head_type">نوع head</string>
+    <string name="server_lab_mode_type">حالت gRPC</string>
+    <string name="server_lab_request_host">درخواست میزبان (میزبان/میزبان ws/ میزبان h2)/امنیت QUIC</string>
+    <string name="server_lab_path">مسیر (مسیر ws/ مسیر h2) کلید QUIC/دانه kcp/نام‌خدمات gRPC</string>
+    <string name="server_lab_stream_security">TLS</string>
+    <string name="server_lab_allow_insecure">allowInsecure</string>
+    <string name="server_lab_sni">SNI</string>
+    <string name="server_lab_address3">نشانی</string>
+    <string name="server_lab_port3">پورت</string>
+    <string name="server_lab_id3">رمز عبور</string>
+    <string name="server_lab_security3">امنیت</string>
+    <string name="server_lab_id4">رمز عبور (اختیاری)</string>
+    <string name="server_lab_security4">نام‌کاربری (اختیاری)</string>
+    <string name="server_lab_encryption">رمزگذاری</string>
+    <string name="server_lab_flow">جریان</string>
+    <string name="server_lab_reserved">Reserved (اختیاری)</string>
+    <string name="server_lab_local_address">آدرس محلی IPv4(اختیاری)</string>
+    <string name="server_lab_local_mtu">Mtu(optional, default 1420)</string>
+    <string name="toast_success">موفقیت</string>
+    <string name="toast_failure">شکست</string>
+    <string name="toast_none_data">چیزی نیست</string>
+    <string name="toast_incorrect_protocol">پروتکل نادرست</string>
+    <string name="toast_decoding_failed">رمزگشایی انجام نشد</string>
+    <string name="title_file_chooser">انتخاب پرونده پیکربندی</string>
+    <string name="toast_require_file_manager">لطفا یک مدیر پرونده نصب کنید.</string>
+    <string name="server_customize_config">سفارشی‌سازی پیکربندی</string>
+    <string name="toast_config_file_invalid">پیکربندی معتبر نیست</string>
+    <string name="server_lab_content">محتوا</string>
+    <string name="toast_none_data_clipboard">هیچ داده‌ای در کلیپ‌بورد وجود ندارد</string>
+    <string name="toast_invalid_url">نشانی اینترنتی معتبر نیست</string>
+    <string name="server_lab_need_inbound">اطمینان حاصل کنید که پورت ورودی با تنظیمات مطابقت دارد</string>
+    <string name="toast_malformed_josn">پیکربندی درست نیست</string>
+    <string name="server_lab_request_host6">میزبان (SNI) (اختیاری)</string>
+    <string name="toast_asset_copy_failed">کپی پرونده انجام نشد، لطفا از مدیر پرونده استفاده کنید</string>
+    <string name="menu_item_add_file">افزودن پرونده‌ها</string>
+    <string name="menu_item_download_file">دانلود پرونده‌ها</string>
+
+    <!-- PerAppProxyActivity -->
+    <string name="msg_dialog_progress">بارگذاری</string>
+    <string name="menu_item_search">جستجو</string>
+    <string name="menu_item_select_all">انتخاب همه</string>
+    <string name="msg_enter_keywords">کلیدواژه‌ها را وارد کنید</string>
+    <string name="switch_bypass_apps_mode">حالت Bypass</string>
+    <string name="menu_item_select_proxy_app">انتخاب خودکار پروکسی برنامه</string>
+    <string name="msg_downloading_content">در حال دانلود محتوا</string>
+    <string name="menu_item_export_proxy_app">خروجی گرفتن در کلیپ‌بورد</string>
+    <string name="menu_item_import_proxy_app">وارد کردن از کلیپ‌بورد</string>
+
+    <!-- Preferences -->
+    <string name="title_settings">تنظیمات</string>
+    <string name="title_advanced">تنظیمات پیشرفته</string>
+    <string name="title_vpn_settings">تنظیمات VPN</string>
+    <string name="title_pref_per_app_proxy">پروکسی هر برنامه</string>
+    <string name="summary_pref_per_app_proxy">عمومی: برنامه بررسی شده پروکسی است، اتصال مستقیم بدون بررسی است. \nحالت bypass: برنامه بررسی شده مستقیما متصل است، پراکسی بررسی نشده است. \nگزینه‌ای برای انتخاب خودکار پروکسی برنامه در منو است</string>
+
+    <string name="title_pref_mux_enabled">فعال کردن Mux</string>
+    <string name="summary_pref_mux_enabled">سریعتر است، اما ممکن است باعث اتصال ناپایدار شود\nمخزن ترافیک TCP با 8 اتصال پیش‌فرض، نحوه مدیریت UDP و QUIC را در زیر سفارشی کنید</string>
+    <string name="title_pref_mux_xudp_concurency">اتصالات XUDP (محدوده -1 تا 1024)</string>
+    <string name="title_pref_mux_xudp_quic">مدیریت QUIC در تونل mux</string>
+    <string-array name="mux_xudp_quic_entries">
+        <item>رد کردن</item>
+        <item>مجاز</item>
+        <item>رد کردن</item>
+    </string-array>
+
+    <string name="title_pref_speed_enabled">فعال کردن نمایش سرعت</string>
+    <string name="summary_pref_speed_enabled">نمایش سرعت فعلی در قسمت آگاه‌سازی. \nآیکون آگاه‌سازی بر اساس استفاده تغییر می‌کند.</string>
+
+    <string name="title_pref_sniffing_enabled">فعال کردن Sniffing</string>
+    <string name="summary_pref_sniffing_enabled">دامنه sniff را از بسته امتحان کنید (پیش‌فرض روشن)</string>
+
+    <string name="title_pref_local_dns_enabled">فعال کردن DNS محلی</string>
+    <string name="summary_pref_local_dns_enabled">DNS پردازش شده توسط ماژول DNS هسته (توصیه می‌شود، در صورت نیاز به دور زدن LAN و نشانی mainland)</string>
+
+    <string name="title_pref_fake_dns_enabled">فعال کردن DNS جعلی</string>
+    <string name="summary_pref_fake_dns_enabled">DNS محلی آدرس IP جعلی را برمی‌گرداند (سریع‌تر می‌باشد، اما ممکن است برای برخی از برنامه‌ها کار نکند)</string>
+
+    <string name="title_pref_prefer_ipv6">ترجیح دادن IPv6</string>
+    <string name="summary_pref_prefer_ipv6">ترجیح دادن نشانی و مسیر های IPv6</string>
+
+    <string name="title_pref_routing">مسیریابی</string>
+    <string name="title_pref_routing_domain_strategy">استراتژی دامنه</string>
+    <string name="title_pref_routing_mode">قوانین از پیش تعریف شده</string>
+    <string name="title_pref_routing_custom">قوانین سفارشی</string>
+
+    <string name="title_pref_remote_dns">DNS از راه دور (اختیاری)</string>
+    <string name="summary_pref_remote_dns">DNS</string>
+
+    <string name="title_pref_vpn_dns">VPN DNS (فقط IPv4/v6)</string>
+
+    <string name="title_pref_domestic_dns">DNS داخلی (اختیاری)</string>
+    <string name="summary_pref_domestic_dns">DNS</string>
+
+    <string name="title_pref_proxy_sharing_enabled">اجازه اتصالات از طریق LAN</string>
+    <string name="summary_pref_proxy_sharing_enabled">دستگاه‌های دیگر می‌توانند از طریق socks/http به پراکسی توسط نشانی آی‌پی شما متصل شوند، فقط در شبکه مورد اعتماد فعال می‌شوند تا از اتصال غیرمجاز جلوگیری کنند</string>
+    <string name="toast_warning_pref_proxysharing_short">اتصالات از طریق LAN را مجاز کنید، مطمئن شوید که در یک شبکه قابل اعتماد هستید</string>
+
+    <string name="title_pref_allow_insecure">allowInsecure</string>
+    <string name="summary_pref_allow_insecure">هنگام استفاده از TLS، به طور پیش‌فرض allowInsecure فعال است</string>
+
+    <string name="title_pref_socks_port">پورت پروکسی SOCKS5</string>
+    <string name="summary_pref_socks_port">پورت پروکسی SOCKS5</string>
+
+    <string name="title_pref_http_port">پورت پروکسی HTTP</string>
+    <string name="summary_pref_http_port">پورت پروکسی HTTP</string>
+
+    <string name="title_pref_local_dns_port">پورت DNS محلی</string>
+    <string name="summary_pref_local_dns_port">پورت DNS محلی</string>
+
+    <string name="title_pref_confirm_remove">تایید حذف پرونده پیکربندی</string>
+    <string name="summary_pref_confirm_remove">آیا برای حذف پرونده پیکربندی نیاز به تایید دوم توسط کاربر است</string>
+
+    <string name="title_pref_start_scan_immediate">فورا اسکن را شروع کن</string>
+    <string name="summary_pref_start_scan_immediate">دوربین را برای اسکن بلافاصله در هنگام راه اندازی باز کنید، در غیر این صورت می توانید کد را اسکن کنید یا عکسی را در نوار ابزار انتخاب کنید.</string>
+
+    <string name="title_pref_feedback">بازخورد</string>
+    <string name="summary_pref_feedback">بازخورد یا گزارش اشکالات در گیت‌هاب</string>
+    <string name="summary_pref_tg_group">عضویت در گروه تلگرام</string>
+    <string name="toast_tg_app_not_found">برنامه تلگرام پیدا نشد</string>
+
+    <string name="title_pref_promotion">تبلیغات</string>
+    <string name="summary_pref_promotion">تبلیغات، برای جزئیات بیشتر کلیک کنید (کمک مالی کنید تا حذف شود)</string>
+
+    <string name="title_core_loglevel">سطح گزارشات</string>
+    <string name="title_mode">حالت</string>
+    <string name="title_mode_help">برای راهنمایی بیشتر روی این متن، کلیک کنید</string>
+    <string name="title_language">زبان</string>
+    <string name="title_ui_settings">تنظیمات رابط کاربری</string>
+
+    <string name="title_logcat">گزارشات</string>
+    <string name="logcat_copy">کپی</string>
+    <string name="logcat_clear">پاک کردن</string>
+    <string name="title_service_restart">راه‌اندازی مجدد خدمات</string>
+    <string name="title_del_all_config">حذف تمام پیکربندی</string>
+    <string name="title_del_duplicate_config">حذف کانفیگ های تکراری</string>
+    <string name="title_del_invalid_config">تنظیمات نامعتبر را حذف کنید (ابتدا آزمایش کنید)</string>
+    <string name="title_export_all">خروجی گرفتن پیکربندی‌های غیرسفارشی در کلیپ‌بورد</string>
+    <string name="title_sub_setting">تنظیمات گروه‌ی اشتراک</string>
+    <string name="sub_setting_remarks">ملاحظات</string>
+    <string name="sub_setting_url">نشانی اینترنتی اختیاری</string>
+    <string name="sub_setting_enable">فعال کردن به‌روزرسانی</string>
+    <string name="title_sub_update">به‌روزرسانی اشتراک</string>
+    <string name="title_ping_all_server">Tcping همه پیکربندی</string>
+    <string name="title_real_ping_all_server">تاخیر واقعی همه پیکربندی</string>
+    <string name="title_user_asset_setting">پرونده‌های دارایی جغرافیا</string>
+    <string name="title_sort_by_test_results">مرتب‌سازی بر اساس نتایج آزمایش</string>
+    <string name="title_filter_config">فیلتر پرونده پیکربندی ها</string>
+    <string name="filter_config_all">همه گروه‌های اشتراک</string>
+    <string name="title_del_duplicate_config_count">حذف %d کانفیگ تکراری</string>
+
+    <string name="tasker_start_service">شروع خدمات</string>
+    <string name="tasker_setting_confirm">تایید</string>
+
+    <string name="routing_settings_title">تنظیمات مسیریابی</string>
+    <string name="routing_settings_tips">با کاما (,) از هم جدا شوند، ذخیره کردن هم فراموش نک</string>
+    <string name="routing_settings_save">ذخیره</string>
+    <string name="routing_settings_delete">پاک کردن</string>
+    <string name="routing_settings_scan_replace">اسکن و جایگزین کنید</string>
+    <string name="routing_settings_scan_append">اسکن و اضافه کنید</string>
+    <string name="routing_settings_default_rules"> قوانین مسیریابی پیش‌فرض را تنظیم کنید</string>
+
+    <string name="connection_test_pending">اتصال را بررسی کنید</string>
+    <string name="connection_test_testing">در حال آزمایش...</string>
+    <string name="connection_test_available">موفقیت: اتصال HTTP %dms طول کشید</string>
+    <string name="connection_test_error">اتصال به اینترنت شناسایی نشد: %s</string>
+    <string name="connection_test_fail">اینترنت در دسترس نیست</string>
+    <string name="connection_test_error_status_code">کد خطا: #%d</string>
+    <string name="connection_connected">متصل است، برای بررسی اتصال ضربه بزنید</string>
+    <string name="connection_not_connected">متصل نیست</string>
+
+    <string name="import_subscription_success">اشتراک با موفقیت ذخیره شد</string>
+    <string name="import_subscription_failure">ذخیره اشتراک ناموفق بود</string>
+
+    <string name="tv_usage_battery_description">دسترسی پس زمینه را مجاز کنید</string>
+    <string name="tv_usage_battery_title">بازکردن تنظیمات</string>
+    <string name="tv_usage_contact_title">درباره ی ما</string>
+    <string name="tv_usage_contact_description">ما کی هستیم؟</string>
+    <string name="tv_usage_cu_title">برنامه 0 دقیقه پیش نصب شده</string>
+    <string name="tv_usage_cu_version">ورژن برنامه 1.0.0</string>
+    <string name="tv_usage_app_name">INFO</string>
+    <string name="tv_usage_app_copyright">by MRB</string>
+    <string name="tv_usage_connection_details">داده های استفاده در تلفن همراه شما ذخیره می شود. در هر زمان که بخواهید می توانید آنها را در تنظیمات برنامه حذف کنید</string>
+    <string name="tv_usage_data_today_used">استفاده شده</string>
+    <string name="NA">خالی</string>
+    <string name="tv_usage_connection_total_title">Total</string>
+    <string name="tv_usage_connection_yesterday_used">اتصال ها</string>
+    <string name="tv_usage_connection_yesterday_title">دیروز</string>
+    <string name="tv_usage_time_today_metric">HH : MM : SS</string>
+    <string name="tv_usage_time_today_used">زمان</string>
+    <string name="tv_usage_time_title">زمان استفاده</string>
+    <string name="tv_usage_data_thismonth_used">استفاده شده</string>
+    <string name="tv_usage_data_thisweek_title">این هفته</string>
+    <string name="tv_usage_data_thismonth_title">این ماه</string>
+    <string name="tv_usage_data_daythree_title">1-January-2019</string>
+    <string name="tv_usage_data_title">دیتا مصرف شده</string>
+    <string name="tv_usage_connections_title">تعداد اتصالات</string>
+    <string name="tv_usage_faq_process_1">وقتی روی روشن میزنید هیچ فرایندی اجرا نمیشود؟</string>
+    <string name="tv_usage_faq_process_2">اگر همزمان از برنامه های [فیلترشکن] دیگر استفاده میکنید آن را حذف یا متوقف کنید!</string>
+    <string name="tv_usage_faq_title">راهنمای iNet Vpn</string>
+    <string name="tv_usage_faq_q1_2">فیلتر شکن (VPN) یک شبکه خصوصی مجازی است. با استفاده از فیلتر شکن، می توانید از نقاط مهم اینترنت عمومی به طور ایمن استفاده کنید و از حریم خصوصی خود محافظت کنید و سانسور را دور بزنید.</string>
+    <string name="tv_usage_faq_q1_1">چرا به VPN نیاز دارم؟</string>
+    <string name="tv_usage_faq_q2_1">چطوری از iNet VPN استفاده کنم ؟</string>
+    <string name="tv_usage_faq_q2_2">فقط روی دکمه روشن شدن ضربه بزنید</string>
+    <string name="tv_usage_faq_q3_1">چرا iNet VPN در وصل شدن شکست میخورد?</string>
+    <string name="tv_usage_faq_q3_2">فقط روی دکمه پرچم گوشه سمت راست بالا ضربه بزنید و لیست سرور دیگری را تغییر دهید</string>
+    <string name="tv_usage_faq_q4_1">هنوز وصل نمیشه؟</string>
+    <string name="tv_usage_faq_q4_2">وای فای یا اینترنت موبایل را روشن و خاموش کنید و برنامه را ببندید و دوباره باز کنید</string>
+    <string name="tv_usage_faq_q5_1">چگونه iNet VPN را در پس زمینه اجرا کنیم؟</string>
+    <string name="tv_usage_faq_q5_2">مزایا این کار:</string>
+    <string name="tv_usage_faq_q5_3">برنامه شما پس از خاموش شدن صفحه بسته نمی شود!</string>
+    <string name="tv_usage_faq_q5_4"><![CDATA[تنظیمات را باز کنید > تنظیمات پیشرفته > باتری > برنامه های VPN و iNet VPN را فعال کنید]]></string>
+    <string name="tv_usage_faq_q5_0">(این فقط برای دستگاه هایی هست که این قابلیت را به صورت خودکار پشتیبانی نمیکنند!)</string>
+    <string name="tv_usage_faq_qv_1">چطور تنظیمات سرور های v2ray را شخصی سازی کنم؟</string>
+    <string name="tv_usage_faq_qv_2">فقط روی دکمه تنظیمات گوشه سمت راست بالا ضربه بزنید و کانفیگ سرور ها را تغییر دهید</string>
+    <string name="tv_contact_title">درباره ی ما</string>
+    <string name="tv_about_contact_problem">by Mr_artan, MehrabSp</string>
+    <string name="tv_about_contact_me">**</string>
+    <string name="tv_review_title">Enjoying iNet VPN?</string>
+    <string name="tv_review_sup">If you like this app, please give it 5 stars :)</string>
+    <string name="btn_review_submit">SUBMIT REVIEW</string>
+    <string name="iv_flag">name of the country</string>
+    <string name="tv_country">New York, USA</string>
+    <string name="testlogincaptcha">یوزرنیم و پسورد خود را وارد کنید</string>
+    <string name="checkbox_about_contact_crashed">- برنامه کرش میکند</string>
+    <string name="checkbox_about_contact_servers">- سرعت خیلی کم است</string>
+    <string name="checkbox_about_contact_connecting">- هیچ وقت وصل نمیشود</string>
+    <string name="btn_about_contact_submit">ارسال بازخورد</string>
+
+    <string-array name="share_method">
+        <item>QRcode</item>
+        <item>خروجی گرفتن در کلیپ‌بورد</item>
+        <item>خروجی گرفتن پیکربندی کامل در کلیپ‌بورد</item>
+    </string-array>
+
+    <string-array name="share_sub_method">
+        <item>QRcode</item>
+        <item>خروجی گرفتن در کلیپ‌بورد</item>
+    </string-array>
+
+    <string-array name="routing_tag">
+        <item>نشانی اینترنتی یا آی‌پی پروکسی</item>
+        <item>نشانی اینترنتی یا آی‌پی مستقیم</item>
+        <item>نشانی اینترنتی یا آی‌پی مسدود شده</item>
+    </string-array>
+
+    <string-array name="routing_mode">
+        <item>پروکسی سراسری</item>
+        <item>دور زدن آدرس LAN و سپس پروکسی</item>
+        <item>دور زذن آدرس mainland و سپس پروکسی</item>
+        <item>دور زدن LAN و آدرس mainland و سپس پروکسی</item>
+        <item>مستقیم سراسری</item>
+    </string-array>
+
+    <string-array name="mode_entries">
+        <item>VPN</item>
+        <item>فقط پروکسی</item>
+    </string-array>
+
+</resources>

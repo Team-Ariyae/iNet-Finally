@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:clickable="true"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/header_layout"
+                layout="@layout/header_layout_right" />
+
+            <!--            <include-->
+            <!--                android:id="@+id/data_usage"-->
+            <!--                layout="@layout/usage_data_view" />-->
+
+            <!--            <include-->
+            <!--                android:id="@+id/time_usage"-->
+            <!--                layout="@layout/usage_time_view" />-->
+
+            <include
+                android:id="@+id/connections_usage"
+                layout="@layout/usage_connections_view" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/lo_8dpGrid"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/lo_16dpGrid"
+                android:paddingEnd="@dimen/lo_16dpGrid">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_info"
+                    android:contentDescription="@string/todo" />
+
+                <TextView
+                    android:id="@+id/tv_usage_connection_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/lo_8dpGrid"
+                    android:text="@string/tv_usage_connection_details"
+                    android:textSize="@dimen/ts_Body2" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="10dp"
+                android:background="@color/colorLineUsageList" />
+
+            <include
+                android:id="@+id/setting_usage"
+                layout="@layout/usage_setting_view" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/lo_16dpGrid"
+                android:layout_marginEnd="@dimen/lo_16dpGrid"
+                android:layout_marginBottom="@dimen/lo_16dpGrid"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/ic_split"
+                    android:contentDescription="@string/todo" />
+
+                <LinearLayout
+                    android:id="@+id/settingAngMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/lo_16dpGrid"
+                    android:layout_marginEnd="@dimen/lo_16dpGrid"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="اتصال به ازای هر برنامه"
+                        android:textSize="@dimen/ts_Body1"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="برای مدیریت و سفارشی کردن کلیک کنید"
+                        android:textSize="@dimen/ts_Body2" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLineUsageList" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/lo_16dpGrid"
+                android:layout_marginEnd="@dimen/lo_16dpGrid"
+                android:layout_marginBottom="@dimen/lo_16dpGrid"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/ic_go_forward"
+                    android:contentDescription="@string/todo" />
+
+                <LinearLayout
+                    android:id="@+id/settingCiscMain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/lo_16dpGrid"
+                    android:layout_marginEnd="@dimen/lo_16dpGrid"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="تنظیمات سیسکو"
+                        android:textSize="@dimen/ts_Body1"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="برای مدیریت و سفارشی کردن کلیک کنید"
+                        android:textSize="@dimen/ts_Body2" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLineUsageList" />
+
+            <TextView
+                android:id="@+id/cisco_log"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="برای بررسی لاگ سیسکو کلیک کنید"
+                android:textSize="@dimen/ts_Body2" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLineUsageList" />
+
+            <LinearLayout
+                android:id="@+id/linearLayoutDarkMode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="vertical"
+                android:padding="@dimen/lo_16dpGrid">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="کلید قطع اضطراری"
+                    android:textSize="@dimen/ts_Body1"
+                    android:textStyle="bold" />
+
+                <Switch
+                    android:id="@+id/switch_usage_fast_mode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="این قابلیت باعث میشود که وقتی اتصال شما ناپایدار بود و نیاز به قطع اینترنت داشتید بتوانید فورا ان را قطع کنید"
+                    android:textColor="@color/colorText"
+                    android:textSize="14sp"
+                    android:theme="@style/bubbleSwitch"
+                    tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/linearLineLayoutBattery"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLineUsageList"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/linearLayoutBattery"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="vertical"
+                android:padding="@dimen/lo_16dpGrid"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_usage_battery_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_usage_battery_title"
+                    android:textSize="@dimen/ts_Body1"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_usage_battery_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tv_usage_battery_description"
+                    android:textSize="@dimen/ts_Body2" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLineUsageList" />
+
+            <LinearLayout
+                android:id="@+id/linear_layout_aboutme"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/lo_16dpGrid"
+                android:layout_marginTop="@dimen/lo_16dpGrid"
+                android:layout_marginEnd="@dimen/lo_16dpGrid"
+                android:layout_marginBottom="@dimen/lo_16dpGrid"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/ic_profile"
+                    android:contentDescription="@string/todo" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/lo_16dpGrid"
+                    android:layout_marginEnd="@dimen/lo_16dpGrid"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_usage_contact_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_usage_contact_title"
+                        android:textSize="@dimen/ts_Body1"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_usage_contact_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_usage_contact_description"
+                        android:textSize="@dimen/ts_Body2" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLineUsageList" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/lo_16dpGrid"
+                android:layout_marginTop="@dimen/lo_16dpGrid"
+                android:layout_marginEnd="@dimen/lo_16dpGrid"
+                android:layout_marginBottom="@dimen/lo_16dpGrid"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/logo_effected"
+                    android:contentDescription="@string/todo" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/lo_16dpGrid"
+                    android:layout_marginEnd="@dimen/lo_16dpGrid"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_usage_cu_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_usage_cu_title"
+                        android:textSize="@dimen/ts_Body1"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_usage_cu_version"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tv_usage_cu_version"
+                        android:textColor="#AFAFAF" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorLineUsageList" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/lo_16dpGrid"
+                android:layout_marginBottom="@dimen/lo_16dpGrid"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_usage_app_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/lo_8dpGrid"
+                        android:layout_marginEnd="@dimen/lo_8dpGrid"
+                        android:gravity="center"
+                        android:text="@string/tv_usage_app_name"
+                        android:textColor="#777777"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_usage_app_copyright"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/lo_8dpGrid"
+                        android:layout_marginEnd="@dimen/lo_8dpGrid"
+                        android:gravity="center"
+                        android:text="@string/tv_usage_app_copyright"
+                        android:textColor="#777777"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
