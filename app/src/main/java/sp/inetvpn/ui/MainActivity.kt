@@ -17,17 +17,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.GravityCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
-import app.openconnect.core.OpenConnectManagementThread
-import app.openconnect.core.OpenVpnService
-import app.openconnect.core.VPNConnector
-import app.openconnect.fragments.StatusFragment
-import app.openconnect.fragments.VPNProfileList
-import app.openconnect.remote.ProfileManager
 import com.google.android.material.navigation.NavigationView
 import com.tencent.mmkv.MMKV
 import com.xray.lite.AppConfig
 import com.xray.lite.service.V2RayServiceManager
-import com.xray.lite.ui.BaseActivity
 import com.xray.lite.ui.MainAngActivity
 import com.xray.lite.util.MmkvManager
 import com.xray.lite.util.Utils
@@ -45,11 +38,17 @@ import sp.inetvpn.databinding.ActivityMainBinding
 import sp.inetvpn.state.MainActivity.vpnState
 import sp.inetvpn.util.CheckInternetConnection
 import sp.inetvpn.util.UsageConnectionManager
+import sp.openconnect.core.OpenConnectManagementThread
+import sp.openconnect.core.OpenVpnService
+import sp.openconnect.fragments.StatusFragment
+import sp.openconnect.fragments.VPNProfileList
+import sp.openconnect.remote.CiscoMainActivity
+
 
 /**
  * MehrabSp
  */
-class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : CiscoMainActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var binding: ActivityMainBinding
 
@@ -59,8 +58,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private val usageConnectionManager = UsageConnectionManager()
 
     // cisco
-    var ciscoProfile: ProfileManager? = null
-//    private var mConn: VPNConnector? = null
+    private var mConnectionState = OpenConnectManagementThread.STATE_DISCONNECTED
 
     /**
      * openvpn service
@@ -150,22 +148,38 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         if (!GlobalData.isStart) {
 
             try {
-                state?.setNewVpnState(1)
-                val res: Boolean = ciscoProfile!!.CreateProfileWithName("se.se2ven.sbs:510")
+                usageConnectionManager.establishConnection()
 
-                if (res) {
-                    showToast("Created!")
-                    ciscoProfile!!.StartVPNWithProfile()
-                    state?.setNewVpnState(2)
-                    GlobalData.isStart = true
-                    showToast("Start!")
-                } else {
-                    showToast("وصل نشد!")
+                try {
+                    val file = GlobalData.connectionStorage.getString("fileC", null)
+
+                    if (file != null) {
+                        setup?.setNewImage()
+                        state?.setNewVpnState(1)
+
+                        val res: Boolean = CiscoCreateProfileWithHostName(file)
+
+                        if(!res){
+                            Toast.makeText(this, "مشکلی در ساخت پروفایل پیش امد!", Toast.LENGTH_SHORT).show()
+                            StopCisco()
+                        }else{
+                            Toast.makeText(this, "در حال اتصال ...", Toast.LENGTH_SHORT).show()
+
+                            CiscoStartVPNWithProfile()
+                        }
+
+                    } else {
+                        startServersActivity()
+                        Toast.makeText(this, "ابتدا یک سرور را انتخاب کنید", Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: RemoteException) {
+                    e.printStackTrace()
                 }
 
             } catch (e: Exception) {
                 Log.d("CISCO", "BUG: $e")
-                showToast("BUG CISCO")
+                showToast("وصل نشد!")
+                StopCisco()
             }
         }else{
             StopCisco()
@@ -174,8 +188,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
     fun StopCisco(){
         try{
-            showToast("STOP!")
-            ciscoProfile!!.stopForceVPN()
+            showToast(" قطع شد !")
+            CiscoStopForceVPN()
             GlobalData.isStart = false
         }catch (e: Exception){
             showToast("مشکلی در قطع اتصال سیسکو پیش امد!")
@@ -317,6 +331,47 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         super.onActivityResult(requestCode, resultCode, data)
     }
 
+    override fun CurrentUserName(): String {
+        var ul = appValStorage.getString("usernameLogin", null)
+        if(ul == null) ul = ""
+        return ul
+    }
+
+    override fun CurrentPassWord(): String {
+        var ul = appValStorage.getString("usernamePassword", null)
+        if(ul == null) ul = ""
+        return ul
+    }
+
+    override fun isEnableDialog(): Boolean {
+        return false
+    }
+
+    override fun CiscoUpdateUI(service: OpenVpnService?) {
+        val newState = service!!.connectionState
+
+        service.startActiveDialog(this)
+
+        Log.d("OPENCONNECT S", newState.toString())
+
+        if (mConnectionState !== newState) {
+            if (newState == OpenConnectManagementThread.STATE_DISCONNECTED) {
+                // stop
+                GlobalData.isStart = false
+                state?.setNewVpnState(0)
+            } else if (mConnectionState == OpenConnectManagementThread.STATE_DISCONNECTED) {
+                // start
+                GlobalData.isStart = true
+                state?.setNewVpnState(2)
+            }
+            mConnectionState = newState
+        }
+    }
+
+    override fun skipCertWarning(): Boolean {
+        return true
+    }
+
     /**
      * Start the VPN
      */
@@ -324,7 +379,7 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         usageConnectionManager.establishConnection()
 
         try {
-            val file = GlobalData.connectionStorage.getString("file", null)
+            val file = GlobalData.connectionStorage.getString("fileO", null)
             val uL = appValStorage.getString("usernameLogin", null)
             val uU = appValStorage.getString("usernamePassword", null)
 
@@ -485,8 +540,6 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     override fun onResume() {
         super.onResume()
 
-        ciscoProfile = ProfileManager(this@MainActivity)
-
         setup?.setNewImage()
         setup?.handleCountryImage()
 
@@ -498,12 +551,10 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     }
 
     // Bug
-        override fun onPause() {
-        ciscoProfile!!.stopActive()
-        ciscoProfile!!.unBindUpdateUI()
-//            LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReceiver)
-            super.onPause()
-        }
+//        override fun onPause() {
+////            LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReceiver)
+//            super.onPause()
+//        }
 
     fun startServersActivity() {
         val servers = Intent(this@MainActivity, ServersActivity::class.java)

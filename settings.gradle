@@ -17,9 +17,9 @@ dependencyResolutionManagement {
 }
 rootProject.name = "iNet Vpn"
 include ':app'
-//includeBuild("../ics-openconnect") {
-//    name = ":cisco-remote"
-//    dependencySubstitution {
-//        substitute module("sp.cisco:core") using project(":cisco-remote")
-//    }
-//}
+includeBuild("../ics-openconnect") {
+    name = ":cisco-client"
+    dependencySubstitution {
+        substitute module("sp.cisco:core") using project(":cisco-client")
+    }
+}

@@ -31,7 +31,6 @@ public class MainApplication {
     }
 
     public void setupClass() {
-        app.openconnect.remote.data.Static.setGlobalData(context.getApplicationContext());
         MMKV.initialize(context);
         // openvpn-client
         App.setOpenVpn(context, "sp.inetvpn", "spinetvpn", "iNet");

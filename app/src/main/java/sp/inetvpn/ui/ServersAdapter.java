@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import sp.inetvpn.R;
+import sp.inetvpn.data.GlobalData;
 import sp.inetvpn.interfaces.NavItemClickListener;
 import sp.inetvpn.model.OpenVpnServerList;
 import sp.inetvpn.util.CountryListManager;
@@ -96,7 +97,11 @@ public class ServersAdapter extends RecyclerView.Adapter<ServersAdapter.ViewHold
         @Override
         public void onClick(View v) {
             connectionStorage.putString("id", openVpnServerList.GetID());
-            connectionStorage.putString("file", openVpnServerList.GetFileContent());
+            if (GlobalData.defaultItemDialog == 1) {
+                connectionStorage.putString("fileO", openVpnServerList.GetFileContent());
+            }else{
+                connectionStorage.putString("fileC", openVpnServerList.GetFileContent());
+            }
             connectionStorage.putString("country", openVpnServerList.GetCountry());
             connectionStorage.putString("image", openVpnServerList.GetImage());
             int previousSelectedPosition = mSelectedPosition;

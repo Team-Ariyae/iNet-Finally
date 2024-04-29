@@ -91,7 +91,6 @@ android {
     buildFeatures {
         viewBinding true
         buildConfig true
-        aidl true
     }
 
     kotlinOptions {
@@ -108,6 +107,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
     testImplementation 'junit:junit:4.13.2'
+    implementation "sp.cisco:core"
 
     // Androidx
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'

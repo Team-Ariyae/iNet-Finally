@@ -1,4 +1,4 @@
-package sp.inetvpn.handler;
+package sp.inetvpn.api;
 
 import android.content.Context;
 
@@ -9,25 +9,26 @@ import java.util.HashMap;
 import java.util.Map;
 
 import sp.inetvpn.data.GlobalData;
+import sp.inetvpn.handler.VolleySingleton;
 
 /**
  * by MehrabSp
  */
-public class GetAllOpenVpn {
+public class GetAllCisco {
 
-    public interface OpenVCallback {
-        void onOpenVResult(String retOpenV);
+    public interface CiscoCallback {
+        void onCiscoVResult(String retCiscoV);
     }
 
-    public static void setRetOpenV(Context context, OpenVCallback callback) {
+    public static void setRetCiscoV(Context context, CiscoCallback callback) {
         VolleySingleton volleySingleton = new VolleySingleton(context);
         StringRequest sr = new StringRequest(Request.Method.POST, GlobalData.ApiAdress,
-                callback::onOpenVResult,
-                error -> callback.onOpenVResult(null)) {
+                callback::onCiscoVResult,
+                error -> callback.onCiscoVResult(null)) {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<>();
-                params.put("query", GlobalData.ApiOpenVpnName);
+                params.put("query", GlobalData.ApiCiscoName);
                 return params;
             }
 

@@ -102,7 +102,42 @@ public class ServersActivity extends Activity implements NavItemClickListener {
                     ShowNoServerLayout();
                 }
             }else{
-                ShowNoServerLayout();
+
+                // cisco list
+                try {
+                    JSONObject jsonResponse = new JSONObject(GlobalData.GetAllCiscoContent);
+                    boolean result = jsonResponse.getBoolean("result");
+
+                    if (result) {
+                        //{"id":1,"country":"test2","tag":"iraq","ip":"81.12.92.152:510"},{"id":2,"country":"moz iraq","tag":"iraq","ip":"91.199.27.130:510"}
+                        // دسترسی به مقادیر داخل data
+                        JSONArray dataArray = jsonResponse.getJSONArray("data");
+
+                        for (int x = 0; x < dataArray.length(); x++) {
+
+                            JSONObject dataObject = dataArray.getJSONObject(x);
+
+                            String tag = dataObject.getString("tag");
+                            String name = dataObject.getString("country");
+                            String connection = dataObject.getString("ip");
+
+                            ServerArray[x][0] = String.valueOf(x);
+                            ServerArray[x][1] = connection;
+                            ServerArray[x][2] = name;
+                            ServerArray[x][3] = tag;
+
+                            OpenVpnServerList OpenVpnServerList = getOpenVpnServerList(x);
+                            openVpnServerListItemList.add(OpenVpnServerList);
+
+                        }
+                    } else {
+                        ShowNoServerLayout();
+                    }
+
+                } catch (JSONException e) {
+                    ShowNoServerLayout();
+                }
+
             }
 
 

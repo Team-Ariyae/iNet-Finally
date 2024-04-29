@@ -20,8 +20,8 @@ import sp.inetvpn.data.GlobalData
 import sp.inetvpn.databinding.ActivityUsageBinding
 import sp.inetvpn.util.LogManager
 import sp.inetvpn.util.UsageConnectionManager
-import app.openconnect.fragments.LogFragment
-import app.openconnect.fragments.VPNProfileList
+import sp.openconnect.fragments.LogFragment
+import sp.openconnect.fragments.VPNProfileList
 import java.text.NumberFormat
 import java.util.Locale
 import java.util.concurrent.TimeUnit

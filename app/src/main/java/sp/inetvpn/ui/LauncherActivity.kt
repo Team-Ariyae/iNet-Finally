@@ -14,9 +14,8 @@ import sp.inetvpn.MainApplication
 import sp.inetvpn.R
 import sp.inetvpn.data.GlobalData
 import sp.inetvpn.databinding.ActivityLauncherBinding
-import sp.inetvpn.handler.CheckLoginFromApi
-import sp.inetvpn.handler.GetAllCisco
-import sp.inetvpn.handler.GetAllOpenVpn
+import sp.inetvpn.api.GetAllCisco
+import sp.inetvpn.api.GetAllOpenVpn
 import sp.inetvpn.util.Animations
 import sp.inetvpn.util.CheckInternetConnection
 import sp.inetvpn.util.LogManager
@@ -142,20 +141,18 @@ class LauncherActivity : AppCompatActivity() {
         GetAllCisco.setRetCiscoV(this@LauncherActivity) { content: String? ->
             if (content != null) {
                 Log.d("THIS IS C", content);
-//                try {
-//                    val jsonResponse = JSONObject(content)
-//                    val result = jsonResponse.getBoolean("result")
-//                    if (result) {
-//                        Log.d("res of retopenv", content)
-//                        handleValidResult(content)
-//                    } else {
-//                        handleInvalidResult()
-//                    }
-//                } catch (e: JSONException) {
-//                    handleException("اطلاعات به درستی تبدیل نشدن!")
-//                }
-
-                handleValidResultCisco(content)
+                try {
+                    val jsonResponse = JSONObject(content)
+                    val result = jsonResponse.getBoolean("result")
+                    if (result) {
+                        Log.d("res of retcisco", content)
+                        handleValidResultCisco(content)
+                    } else {
+                        handleInvalidResult()
+                    }
+                } catch (e: JSONException) {
+                    handleException("اطلاعات به درستی تبدیل نشدن!")
+                }
             } else {
                 handleEmptyContent()
             }

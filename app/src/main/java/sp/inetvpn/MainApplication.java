@@ -7,7 +7,7 @@ import android.os.StrictMode;
 import androidx.annotation.NonNull;
 import androidx.work.Configuration;
 
-public class MainApplication extends app.openconnect.Application implements Configuration.Provider {
+public class MainApplication extends sp.openconnect.Application implements Configuration.Provider {
     public static MainApplication application;
     public static String device_id;
 
