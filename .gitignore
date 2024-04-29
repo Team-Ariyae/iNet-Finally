@@ -7,5 +7,4 @@
 /captures
 *.apk
 signing.properties
-*.aar
 *.jks
