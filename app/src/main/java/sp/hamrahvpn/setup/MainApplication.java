@@ -33,7 +33,7 @@ public class MainApplication {
     public void setupClass() {
         MMKV.initialize(context);
         // openvpn-client
-        App.setOpenVpn(context, "sp.hamrahvpn", "spinetvpn", "iNet");
+        App.setOpenVpn(context, "sp.hamrahvpn", "sphamrahvpn", "Hamrah");
         LogManager.setAppContext(context);
 
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
