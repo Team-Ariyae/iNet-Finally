@@ -13,8 +13,8 @@ import com.xray.lite.util.Utils
 import com.xray.lite.viewmodel.MainViewModel
 import rx.Observable
 import rx.android.schedulers.AndroidSchedulers
-import sp.inetvpn.R
-import sp.inetvpn.databinding.ActivityAngMainBinding
+import sp.hamrahvpn.R
+import sp.hamrahvpn.databinding.ActivityAngMainBinding
 import java.util.concurrent.TimeUnit
 
 class MainAngActivity : BaseActivity() {

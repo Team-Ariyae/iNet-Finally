@@ -42,7 +42,7 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
 
     <application
-        android:name="sp.inetvpn.MainApplication"
+        android:name="sp.hamrahvpn.MainApplication"
         android:allowBackup="true"
         android:banner="@mipmap/ic_banner"
         android:icon="@mipmap/ic_launcher"
@@ -53,15 +53,15 @@
         tools:targetApi="m">
 
         <activity
-            android:name="sp.inetvpn.ui.SplitActivity"
+            android:name="sp.hamrahvpn.ui.SplitActivity"
             android:exported="false"
             android:theme="@style/AppThemeDayNight.NoActionBar" />
         <activity
-            android:name="sp.inetvpn.ui.LogActivity"
+            android:name="sp.hamrahvpn.ui.LogActivity"
             android:exported="false"
             android:theme="@style/AppThemeDayNight.NoActionBar" />
         <activity
-            android:name="sp.inetvpn.ui.InfoActivity"
+            android:name="sp.hamrahvpn.ui.InfoActivity"
             android:exported="false"
             android:theme="@style/AppThemeDayNight.NoActionBar" />
 
@@ -70,7 +70,7 @@
             android:value="2.1" /> <!-- App -->
 
         <activity
-            android:name="sp.inetvpn.ui.LauncherActivity"
+            android:name="sp.hamrahvpn.ui.LauncherActivity"
             android:exported="true"
             android:theme="@style/AppThemeDayNight.NoActionBar">
             <intent-filter>
@@ -80,7 +80,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="sp.inetvpn.ui.MainActivity"
+            android:name="sp.hamrahvpn.ui.MainActivity"
             android:exported="false"
             android:launchMode="singleTask"
             android:theme="@style/AppThemeDayNight.NoActionBar">
@@ -93,18 +93,18 @@
                 android:resource="@xml/shortcuts" />
         </activity>
         <activity
-            android:name="sp.inetvpn.ui.LoginActivity"
+            android:name="sp.hamrahvpn.ui.LoginActivity"
             android:exported="false"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait" />
         <activity
-            android:name="sp.inetvpn.ui.ServersActivity"
+            android:name="sp.hamrahvpn.ui.ServersActivity"
             android:theme="@style/AppThemeDayNight.NoActionBar" />
         <activity
-            android:name="sp.inetvpn.ui.UsageActivity"
+            android:name="sp.hamrahvpn.ui.UsageActivity"
             android:theme="@style/AppThemeDayNight.NoActionBar" />
-        <activity android:name="sp.inetvpn.ui.FeedbackActivity" />
-        <activity android:name="sp.inetvpn.ui.AboutMeActivity" />
+        <activity android:name="sp.hamrahvpn.ui.FeedbackActivity" />
+        <activity android:name="sp.hamrahvpn.ui.AboutMeActivity" />
         <!-- OpenVpn -->
         <service
             android:name="de.blinkt.openvpn.core.OpenVPNService"
