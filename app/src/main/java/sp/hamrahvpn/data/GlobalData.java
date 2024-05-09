@@ -66,7 +66,7 @@ public class GlobalData {
     public static boolean isStart = false;
 
     // api
-    public static final String ApiAdress = "https://panel.se2ven.sbs/api";
+    public static final String ApiAdress = "https://hamrah.se2ven.sbs/api";
     public static final String ApiKey = "RuOq4gdOYT-rgdgrd4tedgr";
     public static final String ApiLoginName = "getuser";
     public static final String ApiOpenVpnName = "getallopenvpn";

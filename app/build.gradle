@@ -28,7 +28,7 @@ android {
 
     signingConfigs {
         release {
-            storeFile file('/home/mehrab/Desktop/mrb/Android/keys/2024.jks')
+            storeFile file('/home/merab/Desktop/mrb/Android/keys/2024.jks')
             storePassword 'Mehrab1104'
             keyAlias 'key0'
             keyPassword 'Mehrab1104'

@@ -352,7 +352,7 @@ public class MainActivity {
                     try {
                         if (retVersion != BuildConfig.VERSION_CODE) {
                             Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setData(Uri.parse("https://panel.se2ven.sbs/api/update"));
+                            intent.setData(Uri.parse("https://hamrah.se2ven.sbs/api/update"));
                             context.startActivity(intent);
                         } else {
                             context.showToast("برنامه شما به اخرین ورژن اپدیت هست!");
