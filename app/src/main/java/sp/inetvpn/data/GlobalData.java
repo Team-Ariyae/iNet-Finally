@@ -1,8 +1,11 @@
 package sp.inetvpn.data;
 
+import static sp.inetvpn.handler.AsyncIPFetcher.getIPAddress;
+
 import com.tencent.mmkv.MMKV;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 import sp.inetvpn.util.MmkvManager;
 
@@ -66,7 +69,8 @@ public class GlobalData {
     public static boolean isStart = false;
 
     // api
-    public static final String ApiAdress = "https://panel.se2ven.sbs/api";
+    public static final String ApiGithub = "https://raw.githubusercontent.com/Team-Ariyae/iNet-Server/main/api.txt";
+    public static String ApiAdress = "https://google.com";
     public static final String ApiKey = "RuOq4gdOYT-rgdgrd4tedgr";
     public static final String ApiLoginName = "getuser";
     public static final String ApiOpenVpnName = "getallopenvpn";

@@ -3,11 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
-// no effect
-// اگر مقدار درست باشد حجم برنامه فقط به اندازه 2 مگابایت کم میشود
-// و بخاطر فایل های بیلد گرفت شده در هسته برنامه بهم میریزد و کرش میکند
-def proguardEnable = false
-def shrinkEnable = false
 
 android {
     compileSdk rootProject.ext.compileSdk
@@ -26,27 +21,15 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
-    signingConfigs {
-        release {
-            storeFile file('/home/mehrab/Desktop/mrb/Android/keys/2024.jks')
-            storePassword 'Mehrab1104'
-            keyAlias 'key0'
-            keyPassword 'Mehrab1104'
-        }
-    }
-
     buildTypes {
         release {
-            minifyEnabled proguardEnable
-            shrinkResources shrinkEnable
-            ndk.abiFilters 'x86', 'x86_64', 'armeabi', 'arm64-v8a'
+            minifyEnabled false
+            ndk.abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.release
         }
         debug {
             minifyEnabled false
-            shrinkResources false
-            ndk.abiFilters 'x86', 'x86_64', 'armeabi', 'arm64-v8a'
+            ndk.abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }
     }
 
@@ -61,13 +44,13 @@ android {
         abi {
             enable true
             reset()
-            include 'x86', 'x86_64', 'armeabi', 'arm64-v8a' //select ABIs to build APKs for
+            include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64' //select ABIs to build APKs for
             universalApk true //generate an additional APK that contains all the ABIs
         }
     }
 
     // map for the version code
-    project.ext.versionCodes = ['armeabi': 1, 'arm64-v8a': 2, 'x86': 3, 'x86_64': 4]
+    project.ext.versionCodes = ['armeabi-v7a': 1, 'arm64-v8a': 2, 'x86': 3, 'x86_64': 4]
 
     android.applicationVariants.configureEach { variant ->
         // assign different version code for each output
@@ -102,12 +85,18 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.aar', '*.jar'], exclude: [])
     testImplementation 'junit:junit:4.13.2'
-    implementation "sp.cisco:core"
+    implementation "sp.vpn:module"
 
     // Androidx
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'

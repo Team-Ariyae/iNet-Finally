@@ -10,8 +10,8 @@
 
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetClass="com.xray.lite.ui.ScSwitchActivity"
-            android:targetPackage="com.xray.lite" />
+            android:targetClass="sp.xray.lite.ui.ScSwitchActivity"
+            android:targetPackage="sp.xray.lite" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
     <shortcut
@@ -24,8 +24,8 @@
 
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetClass="com.xray.lite.ui.ScScannerActivity"
-            android:targetPackage="com.xray.lite" />
+            android:targetClass="sp.xray.lite.ui.ScScannerActivity"
+            android:targetPackage="sp.xray.lite" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
     <shortcut
@@ -38,8 +38,8 @@
 
         <intent
             android:action="android.intent.action.VIEW"
-            android:targetClass="com.xray.lite.ui.SettingsActivity"
-            android:targetPackage="com.xray.lite" />
+            android:targetClass="sp.xray.lite.ui.SettingsActivity"
+            android:targetPackage="sp.xray.lite" />
         <categories android:name="android.shortcut.conversation" />
     </shortcut>
 </shortcuts>

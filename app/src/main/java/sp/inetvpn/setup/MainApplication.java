@@ -31,9 +31,6 @@ public class MainApplication {
     }
 
     public void setupClass() {
-        MMKV.initialize(context);
-        // openvpn-client
-        App.setOpenVpn(context, "sp.inetvpn", "spinetvpn", "iNet");
         LogManager.setAppContext(context);
 
         SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);

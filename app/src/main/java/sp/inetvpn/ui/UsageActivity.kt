@@ -11,8 +11,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.RadioButton
 import android.widget.Toast
-import com.xray.lite.ui.MainSettingsV2ray
-import com.xray.lite.ui.SettingsActivity
+import sp.xray.lite.ui.SettingsActivity
 import sp.inetvpn.BuildConfig
 import sp.inetvpn.MainApplication
 import sp.inetvpn.R

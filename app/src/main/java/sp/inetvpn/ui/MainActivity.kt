@@ -19,16 +19,14 @@ import androidx.core.view.GravityCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.google.android.material.navigation.NavigationView
 import com.tencent.mmkv.MMKV
-import com.xray.lite.AppConfig
-import com.xray.lite.service.V2RayServiceManager
-import com.xray.lite.ui.MainAngActivity
-import com.xray.lite.util.MmkvManager
-import com.xray.lite.util.Utils
-import com.xray.lite.viewmodel.MainViewModel
+import sp.xray.lite.AppConfig
+import sp.xray.lite.service.V2RayServiceManager
+import sp.xray.lite.util.MmkvManager
+import sp.xray.lite.util.Utils
+import sp.xray.lite.viewmodel.MainViewModel
 import de.blinkt.openvpn.OpenVpnApi
 import de.blinkt.openvpn.core.App
 import de.blinkt.openvpn.core.OpenVPNService
-import de.blinkt.openvpn.core.OpenVPNService.setDefaultStatus
 import de.blinkt.openvpn.core.OpenVPNThread
 import de.blinkt.openvpn.core.VpnStatus
 import sp.inetvpn.R
@@ -40,15 +38,13 @@ import sp.inetvpn.util.CheckInternetConnection
 import sp.inetvpn.util.UsageConnectionManager
 import sp.openconnect.core.OpenConnectManagementThread
 import sp.openconnect.core.OpenVpnService
-import sp.openconnect.fragments.StatusFragment
-import sp.openconnect.fragments.VPNProfileList
-import sp.openconnect.remote.CiscoMainActivity
-
 
 /**
  * MehrabSp
+ *
+ * Github --> Team-Ariyae
  */
-class MainActivity : CiscoMainActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : sp.vpn.module.VpnActivity("domain:ir", true), NavigationView.OnNavigationItemSelectedListener {
 
     lateinit var binding: ActivityMainBinding
 
@@ -59,17 +55,6 @@ class MainActivity : CiscoMainActivity(), NavigationView.OnNavigationItemSelecte
 
     // cisco
     private var mConnectionState = OpenConnectManagementThread.STATE_DISCONNECTED
-
-    /**
-     * openvpn service
-     */
-    private val isServiceRunning: Unit
-        /**
-         * Get service status
-         */
-        get() {
-            setStatus(OpenVPNService.getStatus())
-        }
 
     /**
      * v2ray storage
@@ -104,6 +89,9 @@ class MainActivity : CiscoMainActivity(), NavigationView.OnNavigationItemSelecte
     private var enableButtonC: Boolean = true
     // ViewModel (V2ray)
     private val mainViewModel: MainViewModel by viewModels()
+    override fun stateV2rayVpn(isRunning: Boolean) {
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -116,8 +104,10 @@ class MainActivity : CiscoMainActivity(), NavigationView.OnNavigationItemSelecte
 
         state?.handlerSetupFirst() // set default state
         setup?.setupAll()
+    }
 
-        initializeAll() // setup openvpn service
+    override fun setTestStateLayout(content: String) {
+
     }
 
     fun handleButtonConnect() {
@@ -189,7 +179,7 @@ class MainActivity : CiscoMainActivity(), NavigationView.OnNavigationItemSelecte
     fun StopCisco(){
         try{
             showToast(" قطع شد !")
-            CiscoStopForceVPN()
+            CiscoStopVPN()
             GlobalData.isStart = false
         }catch (e: Exception){
             showToast("مشکلی در قطع اتصال سیسکو پیش امد!")
@@ -223,15 +213,6 @@ class MainActivity : CiscoMainActivity(), NavigationView.OnNavigationItemSelecte
         } else {
             prepareVpn()
         }
-    }
-
-    /**
-     * openvpn fun
-     */
-    private fun initializeAll() {
-        // Checking is vpn already running or not (OpenVpn)
-        isServiceRunning
-        VpnStatus.initLogCache(this.cacheDir)
     }
 
     /**
@@ -331,22 +312,6 @@ class MainActivity : CiscoMainActivity(), NavigationView.OnNavigationItemSelecte
         super.onActivityResult(requestCode, resultCode, data)
     }
 
-    override fun CurrentUserName(): String {
-        var ul = appValStorage.getString("usernameLogin", null)
-        if(ul == null) ul = ""
-        return ul
-    }
-
-    override fun CurrentPassWord(): String {
-        var ul = appValStorage.getString("usernamePassword", null)
-        if(ul == null) ul = ""
-        return ul
-    }
-
-    override fun isEnableDialog(): Boolean {
-        return false
-    }
-
     override fun CiscoUpdateUI(service: OpenVpnService?) {
         val newState = service!!.connectionState
 
@@ -366,10 +331,6 @@ class MainActivity : CiscoMainActivity(), NavigationView.OnNavigationItemSelecte
             }
             mConnectionState = newState
         }
-    }
-
-    override fun skipCertWarning(): Boolean {
-        return true
     }
 
     /**
@@ -414,7 +375,7 @@ class MainActivity : CiscoMainActivity(), NavigationView.OnNavigationItemSelecte
             when (connectionState) {
                 "DISCONNECTED" -> {
                     stopVpn()
-                    setDefaultStatus()
+//                    setDefaultStatus() TODO()
                 }
 
                 "CONNECTED" -> {
@@ -457,33 +418,16 @@ class MainActivity : CiscoMainActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-    /**
-     * Update status UI
-     *
-     * @param duration:          running time
-     * @param lastPacketReceive: last packet receive time
-     * @param byteIn:            incoming data
-     * @param byteOut:           outgoing data
-     */
-    fun updateConnectionStatus(
-        duration: String?,
-        lastPacketReceive: String?,
-        byteIn: String?,
-        byteOut: String?
-    ) {
-//        binding.durationTv.setText("Duration: " + duration);
-//        binding.lastPacketReceiveTv.setText("Packet Received: " + lastPacketReceive + " second ago");
-//        binding.byteInTv.setText("Bytes In: " + byteIn);
-//        binding.byteOutTv.setText("Bytes Out: " + byteOut);
+    override fun CiscoCurrentUserName(): String {
+        var ul = appValStorage.getString("usernameLogin", null)
+        if(ul == null) ul = ""
+        return ul
     }
 
-    /**
-     * Show toast message
-     *
-     * @param message: toast message
-     */
-    fun showToast(message: String?) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    override fun CiscoCurrentPassWord(): String {
+        var ul = appValStorage.getString("usernamePassword", null)
+        if(ul == null) ul = ""
+        return ul
     }
 
     /**
@@ -550,11 +494,15 @@ class MainActivity : CiscoMainActivity(), NavigationView.OnNavigationItemSelecte
         state?.restoreTodayTextTv()
     }
 
-    // Bug
-//        override fun onPause() {
-////            LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReceiver)
-//            super.onPause()
-//        }
+    override fun OpenVpnStatus(str: String?, err: Boolean?, errmsg: String?) {
+    }
+
+    override fun updateConnectionStatus(
+        duration: String?,
+        lastPacketReceive: String?,
+        byteIn: String?,
+        byteOut: String?
+    ) {}
 
     fun startServersActivity() {
         val servers = Intent(this@MainActivity, ServersActivity::class.java)

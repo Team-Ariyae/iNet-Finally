@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.xray.lite.ui.MainSettingsV2ray">
+    tools:context="sp.xray.lite.ui.MainSettingsV2ray">
 
     <LinearLayout
         android:id="@+id/constraintLayoutServers"

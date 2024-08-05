@@ -17,13 +17,6 @@ import androidx.core.view.GravityCompat;
 
 import com.google.android.material.navigation.NavigationView;
 import com.tbruyelle.rxpermissions.RxPermissions;
-import com.xray.lite.AppConfig;
-import com.xray.lite.ui.MainAngActivity;
-import com.xray.lite.ui.adapters.MainRecyclerAdapter;
-import com.xray.lite.util.AngConfigManager;
-import com.xray.lite.util.MmkvManager;
-import com.xray.lite.util.Utils;
-import com.xray.lite.viewmodel.MainViewModel;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -46,10 +39,17 @@ import sp.inetvpn.api.GetVersionApi;
 import sp.inetvpn.ui.FeedbackActivity;
 import sp.inetvpn.ui.InfoActivity;
 import sp.inetvpn.ui.LoginActivity;
+import sp.inetvpn.ui.MainAngActivity;
 import sp.inetvpn.ui.SplitActivity;
 import sp.inetvpn.ui.UsageActivity;
+import sp.inetvpn.ui.adapter.MainRecyclerAdapter;
 import sp.inetvpn.util.CountryListManager;
 import sp.inetvpn.util.ManageDisableList;
+import sp.xray.lite.AppConfig;
+import sp.xray.lite.util.AngConfigManager;
+import sp.xray.lite.util.MmkvManager;
+import sp.xray.lite.util.Utils;
+import sp.xray.lite.viewmodel.MainViewModel;
 
 /**
  * Setup for MainActivity

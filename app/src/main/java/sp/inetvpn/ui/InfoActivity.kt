@@ -2,10 +2,10 @@ package sp.inetvpn.ui
 
 import android.os.Bundle
 import android.view.View
-import com.xray.lite.ui.BaseActivity
 import sp.inetvpn.R
 import sp.inetvpn.data.GlobalData
 import sp.inetvpn.databinding.ActivityInfoBinding
+import sp.xray.lite.ui.BaseActivity
 
 class InfoActivity : BaseActivity() {
     private var binding: ActivityInfoBinding? = null
