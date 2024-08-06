@@ -28,7 +28,7 @@ public class MainApplication extends sp.vpn.module.VpnApplication implements Con
 
     @Override
     protected String getContentTitle() {
-        return "iNet";
+        return "Hamrah";
     }
 
     @Override

@@ -16,7 +16,7 @@ public class GlobalData {
 
     // default text
     public static final String default_usage_permissions_txt = "اجازه دهید برنامه همیشه در پس‌زمینه اجرا شود؟";
-    public static final String default_usage_permissions_backg_txt = "اجازه دادن به iNet VPN برای اجرای همیشه در برنامه پس‌زمینه ممکن است مصرف حافظه را کاهش دهد";
+    public static final String default_usage_permissions_backg_txt = "اجازه دادن به  VPN برای اجرای همیشه در برنامه پس‌زمینه ممکن است مصرف حافظه را کاهش دهد";
     public static final String NA = "خالی";
     // dialog
     public static final String[] item_options = {"V2ray", "OpenVpn", "Cisco"};
@@ -69,7 +69,7 @@ public class GlobalData {
     public static boolean isStart = false;
 
     // api
-    public static final String ApiGithub = "https://raw.githubusercontent.com/Team-Ariyae/iNet-Server/main/api.txt";
+    public static final String ApiGithub = "https://raw.githubusercontent.com/Team-Ariyae/Hamrah-Server/main/api.txt";
     public static String ApiAdress = "https://google.com";
     public static final String ApiKey = "RuOq4gdOYT-rgdgrd4tedgr";
     public static final String ApiLoginName = "getuser";
